@@ -20,7 +20,7 @@ $sid=$_SESSION['id'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>    
     <script>
     $(function() {
     $( "#datepicker1" ).datepicker({dateFormat: "dd-mm-yy"});
@@ -134,6 +134,97 @@ $sid=$_SESSION['id'];
     </div>
 </section>
     
+
+<div class="col-md-6">
+  <div class="panel panel-warning">
+      <div class="panel-heading">
+        <span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Add Expenses/Income Detail
+      </div>
+      <div class="panel-body">
+
+        <form action="home.php" class="form-horizontal"  name="showexp" method="post" id="myForm" >
+          <div class="col-lg-8">
+              <script>
+                  function isNumberKey(evt){
+                    var charCode = (evt.which) ? evt.which : event.keyCode
+                  if (charCode > 31 && (charCode != 46 &&(charCode < 48 || charCode > 57)))
+                    return false;
+                    return true;
+                  }    
+              </script>
+              <input type="text" class="form-control" size="20"  name="entrydate" required placeholder="Choose Date" id="datepicker3" readonly  aria-label="..." value="<?php $thisday = strtotime($today);
+                $thisday= date('d-m-Y', $thisday); echo $thisday; ?>">
+              <input type="text" class="form-control" size="20" id="edetail"   name="edetail" required placeholder="Enter Detail/Source" title="Please Enter Source"  aria-label="..." autofocus>
+              <input type="text" class="form-control" size="20" id="eamount" name="eamount" required placeholder="Enter Amount" aria-label="..." title="Please enter Amount"  onkeypress="return isNumberKey(event)"  >
+
+
+              <div class="input-group">
+                <span class="input-group-addon">Choose Type:
+                  <label><input type="radio"  name="enttype"  value="1" aria-label="..." checked="">Expense</label>
+                  <label><input type="radio" name="enttype"   value="2" aria-label="...">Income</label>
+                </span>
+                  <span class="input-group-btn">
+                    <button  type="submit" class="btn btn-primary" ><b>Save</b>  <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span></button>
+                  </span>
+              </div>  
+          </div>
+        </form>
+
+
+
+        <?php
+          $uid=$sid;
+          if(isset($_POST["entrydate"]) && trim($_POST["entrydate"]) != "") 
+            {
+
+              $entrydate = $_POST["entrydate"];
+              $entrydate = strtotime($entrydate);
+              $entrydate= date('Y-m-d', $entrydate);
+              $enttype = mysqli_real_escape_string($conn, $_POST["enttype"]);
+              $edetail = mysqli_real_escape_string($conn,$_POST["edetail"]);
+              $eamount = mysqli_real_escape_string($conn, $_POST["eamount"]);
+              $edetail = strip_tags($edetail);
+              $eamount = strip_tags($eamount);
+              $eamount = floatval($eamount);
+
+              if (isset($_POST["enttype"]) && trim($_POST["enttype"]) == "1") 
+                      
+              {
+          $sql = "INSERT INTO expense (pname, pprice, uid, date )
+          VALUES ('$edetail','$eamount','$uid','$entrydate')";
+          if ($conn->query($sql) === TRUE) 
+          {
+            echo "";
+          } 
+
+          else 
+          {
+              echo "Error: " . $sql . "<br>" . $conn->error;
+          }
+              }
+
+              elseif (isset($_POST["enttype"]) && trim($_POST["enttype"]) == "2") 
+              {
+          $sql = "INSERT INTO income (income, tvalue, uid, date )
+          VALUES ('$edetail','$eamount','$uid','$entrydate')";
+          if ($conn->query($sql) === TRUE) {
+
+          } else {
+              echo "Error: " . $sql . "<br>" . $conn->error;
+          }
+
+              }
+
+            }
+
+
+        ?>
+
+      </div>  
+    </div>
+</div>
+
+
 </body>
 </html>
 
