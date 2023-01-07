@@ -50,7 +50,7 @@ $sid=$_SESSION['id'];
 <body onLoad="document.showexp.edetail.focus()">
     <section>
 
-        <div class="h-12 flex justify-between align-middle items-center mb-2 px-2 bg-blue-600 text-white">
+        <div class="h-12 flex justify-between align-middle items-center px-2 bg-blue-600 text-white">
             <div class="flex justify-center items-center align-middle">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
@@ -59,6 +59,71 @@ $sid=$_SESSION['id'];
             </div>            
             <a href='signout.php' class="inline-block px-6 py-2.5 bg-blue-400 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" >Logout</a>
         </div> 
+
+        <!-- displaying wallet balance -->
+        <div class="flex justify-center bg-blue-300">
+                <div class="block p-6 rounded-lg shadow-lg w-full">
+                    <h5 class="text-gray-900 text-xl leading-tight font-medium mb-4">Net asset </h5>
+                    
+
+                    <div class="flex pb-4">
+                            <p class="flex  justify-center items-center align-middle">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 mr-2">
+                                    <path d="M4.5 3.75a3 3 0 00-3 3v.75h21v-.75a3 3 0 00-3-3h-15z" />
+                                    <path fill-rule="evenodd" d="M22.5 9.75h-21v7.5a3 3 0 003 3h15a3 3 0 003-3v-7.5zm-18 3.75a.75.75 0 01.75-.75h6a.75.75 0 010 1.5h-6a.75.75 0 01-.75-.75zm.75 2.25a.75.75 0 000 1.5h3a.75.75 0 000-1.5h-3z" clip-rule="evenodd" />
+                            </svg>
+
+                                   <h3 class="mr-1"> Kshs</h3> 
+                            </p>  
+
+                            <span class="label label-default">
+
+
+                                <?php 
+                                    $today = date("Y-m-d");
+                                    $dtstart = date("1950-m-d");
+                                    $thiyear = date("y-01-01");
+
+
+                                    $query = "SELECT SUM(tvalue) FROM income WHERE date >= '$dtstart' AND date <= '$today' AND uid='$sid' AND isdel=0"; 
+                                    $result = $conn->query($query);
+                                        while($psum = $result->fetch_assoc()) 
+                                    {
+                                    $tisum = $psum['SUM(tvalue)'];                                
+                                    } 
+                                ?>
+
+                                <?php 
+                                    // CALL `add`();
+                                    $query = "SELECT SUM(pprice) FROM expense WHERE date = '$today' AND uid='$sid' AND isdel=0"; 
+                                    $result = $conn->query($query);
+                                        while($psum = $result->fetch_assoc()) 
+                                    {
+                                    $tesum = $psum['SUM(pprice)'];                                
+                                    } 
+                                ?>
+
+                                <?php 
+                                        $query = "SELECT SUM(pprice) FROM expense WHERE date >= '$dtstart' AND date <= '$today' AND uid='$sid' AND isdel=0"; 
+                                        $result = $conn->query($query);
+                                            while($psum = $result->fetch_assoc()) 
+                                        {
+                                            $tesum = $psum['SUM(pprice)'];                                        
+                                        } 
+                                ?>
+
+
+                                    <?php $rbalance = $tisum - $tesum;
+                                        //  tisum->
+                                        if ($tisum == '')
+                                        {echo "NIL";}
+                                        else
+                                        {echo $rbalance;}
+                                    ?>
+                            </span>
+                    </div>                    
+                </div>
+        </div>
 
 
         <div class="flex justify-between absolute left-0 bottom-0 right-0 items-center h-11 text-white bg-blue-600 align-middle px-4">
@@ -87,9 +152,6 @@ $sid=$_SESSION['id'];
             <div class="flex">Analytics</div>            
         </div>
     </div>
-
-
-
 
     </section>  
 </body>
