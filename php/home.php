@@ -71,6 +71,7 @@ $sid=$_SESSION['id'];
     } 
 
     ?></span>
+
     <!-- Today's Expenses Start-->
     <br>Today's Expenses : <span class="label label-danger" id='exptop'><?php 
     // CALL `add`();
@@ -88,6 +89,7 @@ $sid=$_SESSION['id'];
     ?></span>
     <!-- Today's Expenses End -->
 
+    <!-- total expenses start -->
     <br>Total Expenses : <span class="label label-danger" id='exptop'><?php 
     $query = "SELECT SUM(pprice) FROM expense WHERE date >= '$dtstart' AND date <= '$today' AND uid='$sid' AND isdel=0"; 
     $result = $conn->query($query);
@@ -100,6 +102,8 @@ $sid=$_SESSION['id'];
         {echo $tesum;}
     } 
     ?></span>
+    <!-- total expense end -->
+    <!-- total balance start -->
         <br>Total Balance : <span class="label label-default"><?php $rbalance = $tisum - $tesum;
         //  tisum->
         if ($tisum == '')
@@ -107,6 +111,7 @@ $sid=$_SESSION['id'];
         else
         {echo $rbalance;}
     ?></span>
+    <!-- total balance end -->
 </section>
     
 </body>
