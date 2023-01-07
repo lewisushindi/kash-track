@@ -49,7 +49,7 @@ $sid=$_SESSION['id'];
  
 </head>
 <body onLoad="document.showexp.edetail.focus()">
-<section class="bg-blue-300 h-screen overflow-y-hidden">
+<section class=" h-screen overflow-y-hidden">
 
     <section class="bg-blue-300 pb-4">
         <div class="h-12 flex justify-between align-middle items-center mb-2 px-2 bg-blue-600 text-white">
@@ -163,101 +163,103 @@ $sid=$_SESSION['id'];
         </div>
     </section>
         
-
-    <div class="col-md-6 pt-2 px-4 bg-white pb-4 rounded-t-3xl">
-    <div class="panel panel-warning">
-        <div class="panel-heading">
-            <span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Add Expenses/Income Detail
-        </div>
-        <div class="panel-body">
-
-            <form action="home.php" class="form-horizontal"  name="showexp" method="post" id="myForm" >
-            <div class="col-lg-8">
-                <script>
-                    function isNumberKey(evt){
-                        var charCode = (evt.which) ? evt.which : event.keyCode
-                    if (charCode > 31 && (charCode != 46 &&(charCode < 48 || charCode > 57)))
-                        return false;
-                        return true;
-                    }    
-                </script>
-                <div class="flex flex-col">
-                        <div class="flex">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
-                        </svg>
-
-                        <input type="text" class="form-control" size="20"  name="entrydate" required placeholder="Choose Date" id="datepicker3" readonly  aria-label="..." value="<?php $thisday = strtotime($today);
-                            $thisday= date('d-m-Y', $thisday); echo $thisday; ?>">
-                        </div>
-
-                        <div class="flex flex-col mt-2">
-                        <input type="text" class="form-control mb-2 p-3 bg-blue-100 h-8 text-black" size="20" id="edetail"   name="edetail" required placeholder="Enter Detail/Source" title="Please Enter Source"  aria-label="..." autofocus>
-                        <input type="text" class="form-control mb-2 p-3 bg-blue-100 h-8 text-black" size="20" id="eamount" name="eamount" required placeholder="Enter Amount" aria-label="..." title="Please enter Amount"  onkeypress="return isNumberKey(event)"  >
-                        </div>
+    <section class="bg-blue-300">
+        <div class="col-md-6 pt-2 px-4 bg-white pb-4 rounded-t-3xl">
+            <div class="panel panel-warning">
+                <div class="panel-heading mb-2">
+                    <span class="glyphicon glyphicon-copy" aria-hidden="true"></span>
+                    <p>Add Expense/Income Detail</p> 
                 </div>
+                <div class="panel-body">
 
-                <div class="input-group flex flex-col">
-                    <span class="input-group-addon">Choose Type:
-                        <label><input type="radio"  name="enttype"  value="1" aria-label="..." checked="">Expense</label>
-                        <label><input type="radio" name="enttype"   value="2" aria-label="...">Income</label>
-                    </span>
-                    <span class="input-group-btn mt-2 flex justify-center items-center align-middle">
-                        <button  type="submit" class="btn bg-blue-600 w-24 h-8" ><p class="text-white">Save</p>  <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span></button>
-                    </span>
+                    <form action="home.php" class="form-horizontal"  name="showexp" method="post" id="myForm" >
+                    <div class="col-lg-8">
+                        <script>
+                            function isNumberKey(evt){
+                                var charCode = (evt.which) ? evt.which : event.keyCode
+                            if (charCode > 31 && (charCode != 46 &&(charCode < 48 || charCode > 57)))
+                                return false;
+                                return true;
+                            }    
+                        </script>
+                        <div class="flex flex-col">
+                                <div class="flex mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+                                </svg>
+
+                                <input type="text" class="form-control" size="20"  name="entrydate" required placeholder="Choose Date" id="datepicker3" readonly  aria-label="..." value="<?php $thisday = strtotime($today);
+                                    $thisday= date('d-m-Y', $thisday); echo $thisday; ?>">
+                                </div>
+
+                                <div class="flex flex-col mt-2">
+                                <input type="text" class="form-control mb-2 p-3 bg-blue-100 h-8 text-black" size="20" id="edetail"   name="edetail" required placeholder="Enter Detail/Source" title="Please Enter Source"  aria-label="..." autofocus>
+                                <input type="text" class="form-control mb-2 p-3 bg-blue-100 h-8 text-black" size="20" id="eamount" name="eamount" required placeholder="Enter Amount" aria-label="..." title="Please enter Amount"  onkeypress="return isNumberKey(event)"  >
+                                </div>
+                        </div>
+
+                        <div class="input-group flex flex-col">
+                            <span class="input-group-addon mb-2">Choose Type:
+                                <label><input type="radio"  name="enttype"  value="1" aria-label="..." checked="">Expense</label>
+                                <label><input type="radio" name="enttype"   value="2" aria-label="...">Income</label>
+                            </span>
+                            <span class="input-group-btn mt-2 flex justify-center items-center align-middle">
+                                <button  type="submit" class="btn bg-blue-600 w-24 h-8" onClick="window.location.reload()" ><p class="text-white">Save</p>  <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span></button>
+                            </span>
+                        </div>  
+                    </div>
+                    </form>
+
+                    <?php
+                    $uid=$sid;
+                    if(isset($_POST["entrydate"]) && trim($_POST["entrydate"]) != "") 
+                        {
+
+                        $entrydate = $_POST["entrydate"];
+                        $entrydate = strtotime($entrydate);
+                        $entrydate= date('Y-m-d', $entrydate);
+                        $enttype = mysqli_real_escape_string($conn, $_POST["enttype"]);
+                        $edetail = mysqli_real_escape_string($conn,$_POST["edetail"]);
+                        $eamount = mysqli_real_escape_string($conn, $_POST["eamount"]);
+                        $edetail = strip_tags($edetail);
+                        $eamount = strip_tags($eamount);
+                        $eamount = floatval($eamount);
+
+                        if (isset($_POST["enttype"]) && trim($_POST["enttype"]) == "1") 
+                                
+                        {
+                    $sql = "INSERT INTO expense (pname, pprice, uid, date )
+                    VALUES ('$edetail','$eamount','$uid','$entrydate')";
+                    if ($conn->query($sql) === TRUE) 
+                    {
+                        echo "";
+                    } 
+                    else 
+                    {
+                        echo "Error: " . $sql . "<br>" . $conn->error;
+                    }
+                        }
+
+                        elseif (isset($_POST["enttype"]) && trim($_POST["enttype"]) == "2") 
+                        {
+                    $sql = "INSERT INTO income (income, tvalue, uid, date )
+                    VALUES ('$edetail','$eamount','$uid','$entrydate')";
+                    if ($conn->query($sql) === TRUE) {
+
+                    } else {
+                        echo "Error: " . $sql . "<br>" . $conn->error;
+                    }
+
+                        }
+
+                        }
+                    ?>
                 </div>  
             </div>
-            </form>
-
-            <?php
-            $uid=$sid;
-            if(isset($_POST["entrydate"]) && trim($_POST["entrydate"]) != "") 
-                {
-
-                $entrydate = $_POST["entrydate"];
-                $entrydate = strtotime($entrydate);
-                $entrydate= date('Y-m-d', $entrydate);
-                $enttype = mysqli_real_escape_string($conn, $_POST["enttype"]);
-                $edetail = mysqli_real_escape_string($conn,$_POST["edetail"]);
-                $eamount = mysqli_real_escape_string($conn, $_POST["eamount"]);
-                $edetail = strip_tags($edetail);
-                $eamount = strip_tags($eamount);
-                $eamount = floatval($eamount);
-
-                if (isset($_POST["enttype"]) && trim($_POST["enttype"]) == "1") 
-                        
-                {
-            $sql = "INSERT INTO expense (pname, pprice, uid, date )
-            VALUES ('$edetail','$eamount','$uid','$entrydate')";
-            if ($conn->query($sql) === TRUE) 
-            {
-                echo "";
-            } 
-            else 
-            {
-                echo "Error: " . $sql . "<br>" . $conn->error;
-            }
-                }
-
-                elseif (isset($_POST["enttype"]) && trim($_POST["enttype"]) == "2") 
-                {
-            $sql = "INSERT INTO income (income, tvalue, uid, date )
-            VALUES ('$edetail','$eamount','$uid','$entrydate')";
-            if ($conn->query($sql) === TRUE) {
-
-            } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
-            }
-
-                }
-
-                }
-            ?>
-        </div>  
         </div>
-    </div>
+   </section>
     
-    <div class="flex justify-between items-center h-11 text-white bg-blue-600 align-middle px-4">
+    <div class="flex justify-between absolute left-0 bottom-0 right-0 items-center h-11 text-white bg-blue-600 align-middle px-4">
         <div class="flex flex-col justify-center align-middle items-center" >
             <div class="img mb-0">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
