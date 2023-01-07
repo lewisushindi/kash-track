@@ -135,7 +135,7 @@ $sid=$_SESSION['id'];
 </section>
     
 
-<div class="col-md-6">
+<div class="col-md-6 pt-2 pl-4">
   <div class="panel panel-warning">
       <div class="panel-heading">
         <span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Add Expenses/Income Detail
