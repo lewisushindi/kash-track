@@ -74,51 +74,62 @@ $sid=$_SESSION['id'];
                 else
                 {echo $tisum;}
                 } 
+                ?>
+            </span>
+        </div>       
 
+        <!-- Today's Expenses Start-->        
+        <div class="flex">
+            <p class="mr-4"> Today's Expenses : </p> 
+            <span class="label label-danger" id='exptop'>
+                <?php 
+                    // CALL `add`();
+                    $query = "SELECT SUM(pprice) FROM expense WHERE date = '$today' AND uid='$sid' AND isdel=0"; 
+                    $result = $conn->query($query);
+                        while($psum = $result->fetch_assoc()) 
+                    {
+                    $tesum = $psum['SUM(pprice)']; 
+                    if ($tesum== '')
+                    {echo "No Expense Today";}
+                    else
+                    {echo $tesum;}
+                    } 
+                ?>
+            </span>
+        </div>        
+
+        <!-- total expenses start -->     
+        <div class="flex">
+            <p class="mr-4">Total Expenses :</p> 
+            <span class="label label-danger" id='exptop'>
+                <?php 
+                    $query = "SELECT SUM(pprice) FROM expense WHERE date >= '$dtstart' AND date <= '$today' AND uid='$sid' AND isdel=0"; 
+                    $result = $conn->query($query);
+                        while($psum = $result->fetch_assoc()) 
+                    {
+                        $tesum = $psum['SUM(pprice)']; 
+                        if ($tesum== '')
+                        {echo "Add expenses to display here";}
+                        else
+                        {echo $tesum;}
+                    } 
                 ?>
             </span>
         </div>
-       
-
-        <!-- Today's Expenses Start-->
-        <br>Today's Expenses : <span class="label label-danger" id='exptop'><?php 
-        // CALL `add`();
-        $query = "SELECT SUM(pprice) FROM expense WHERE date = '$today' AND uid='$sid' AND isdel=0"; 
-        $result = $conn->query($query);
-            while($psum = $result->fetch_assoc()) 
-        {
-        $tesum = $psum['SUM(pprice)']; 
-        if ($tesum== '')
-        {echo "No Expense Today";}
-        else
-        {echo $tesum;}
-        } 
-
-        ?></span>
-        <!-- Today's Expenses End -->
-
-        <!-- total expenses start -->
-        <br>Total Expenses : <span class="label label-danger" id='exptop'><?php 
-        $query = "SELECT SUM(pprice) FROM expense WHERE date >= '$dtstart' AND date <= '$today' AND uid='$sid' AND isdel=0"; 
-        $result = $conn->query($query);
-            while($psum = $result->fetch_assoc()) 
-        {
-            $tesum = $psum['SUM(pprice)']; 
-            if ($tesum== '')
-            {echo "Add expenses to display here";}
-            else
-            {echo $tesum;}
-        } 
-        ?></span>
-        <!-- total expense end -->
-        <!-- total balance start -->
-            <br>Total Balance : <span class="label label-default"><?php $rbalance = $tisum - $tesum;
-            //  tisum->
-            if ($tisum == '')
-            {echo "NIL";}
-            else
-            {echo $rbalance;}
-        ?></span>
+        
+        <!-- total balance start -->            
+        <div class="flex">
+            <p class="mr-4">Total Balance :</p>  
+            <span class="label label-default">
+                <?php $rbalance = $tisum - $tesum;
+                    //  tisum->
+                    if ($tisum == '')
+                    {echo "NIL";}
+                    else
+                    {echo $rbalance;}
+                ?>
+            </span>
+        </div>
         <!-- total balance end -->
     </div>
 </section>
