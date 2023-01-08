@@ -1,0 +1,10 @@
+{
+  "projectName": "kash-track",
+  "meta": {
+    "type": "backend"
+  },
+  "backend": {
+    "platform": "php7.4"
+  },
+  "hash": "afc48fc9"
+}
