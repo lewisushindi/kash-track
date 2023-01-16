@@ -5,8 +5,8 @@ This is a web application that allows users to track and manage their daily expe
 Users can add, edit and delete expenses, as well as view their total expenses for the day, week, or month.
 
 # Features
-1. Add, edit and delete expenses <br>
-2. View total expenses for the day, week, or month <br>
+1.Add, edit and delete expenses <br>
+2.View total expenses for the day, week, or month. <br>
 3.Filter expenses by category <br>
 4.Export expense data to a CSV file <br>
 5.User authentication and authorization <br>
