@@ -48,7 +48,7 @@ $sid=$_SESSION['id'];
   </script>
 </head>
 <body onLoad="document.showexp.edetail.focus()">
-    <section>
+    <section class="text-sm">
         <div class="h-12 flex justify-between align-middle items-center px-2 bg-blue-600 text-white fixed top-0 left-0 right-0">
             <div class="flex justify-center items-center align-middle">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
@@ -108,7 +108,7 @@ $sid=$_SESSION['id'];
             $dendn = date('d M Y', $dendn);
         ?>
 
-        <div class="flex flex-col text-sm p-1 bg-blue-100 min-h-screen mt-28">
+        <div class="flex flex-col p-1 bg-blue-100 min-h-screen mt-28">
             <section>
                 <h4 class="mb-2">
                     Expense Report from <?php echo $dstartn; ?> - <?php echo $dendn; ?>

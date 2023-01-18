@@ -49,7 +49,7 @@ $sid=$_SESSION['id'];
  
 </head>
 <body onLoad="document.showexp.edetail.focus()">
-<section class=" h-screen overflow-y-hidden">
+<section class=" h-screen overflow-y-hidden text-sm">
 
     <section class="bg-blue-300 pb-4">
         <div class="h-12 flex justify-between align-middle items-center mb-2 px-2 bg-blue-600 text-white">
