@@ -153,7 +153,7 @@ $sid=$_SESSION['id'];
                     <?php $rbalance = $tisum - $tesum;
                         //  tisum->
                         if ($tisum == '')
-                        {echo "NIL";}
+                        {echo "0";}
                         else
                         {echo $rbalance;}
                     ?>
