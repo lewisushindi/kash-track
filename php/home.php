@@ -193,8 +193,8 @@ $sid=$_SESSION['id'];
                                 </div>
 
                                 <div class="flex flex-col mt-2">
-                                <input type="text" class="form-control mb-2 p-3 bg-blue-100 h-8 text-black  border-2 border-solid border-blue-300 outline-none" size="20" id="edetail"   name="edetail" required placeholder="Enter Detail/Source" title="Please Enter Source"  aria-label="..." autofocus>
-                                <input type="text" class="form-control mb-2 p-3 bg-blue-100 h-8 text-black border-2 border-solid border-blue-300 outline-none" size="20" id="eamount" name="eamount" required placeholder="Enter Amount" aria-label="..." title="Please enter Amount"  onkeypress="return isNumberKey(event)"  >
+                                <input type="text" class="form-control mb-2 p-3 bg-blue-100 h-8 text-black  border-2 border-solid border-blue-300 rounded-md outline-none" size="20" id="edetail"   name="edetail" required placeholder="Enter Detail/Source" title="Please Enter Source"  aria-label="..." autofocus>
+                                <input type="text" class="form-control mb-2 p-3 bg-blue-100 h-8 text-black border-2 border-solid border-blue-300 rounded-md outline-none" size="20" id="eamount" name="eamount" required placeholder="Enter Amount" aria-label="..." title="Please enter Amount"  onkeypress="return isNumberKey(event)"  >
                                 </div>
                         </div>
 
