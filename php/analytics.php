@@ -144,7 +144,7 @@ $sid=$_SESSION['id'];
         </div>
 
 
-        <div class="flex justify-between absolute left-0 bottom-0 right-0 items-center h-11 text-white bg-blue-600 align-middle px-4">
+        <div class="flex justify-between fixed left-0 bottom-0 right-0 items-center h-11 text-white bg-blue-600 align-middle px-4">
             <div class="flex flex-col justify-center align-middle items-center" >
                 <div class="img mb-0">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
