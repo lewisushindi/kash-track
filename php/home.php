@@ -49,7 +49,7 @@ $sid=$_SESSION['id'];
  
 </head>
 <body onLoad="document.showexp.edetail.focus()">
-<section class=" h-screen overflow-y-hidden">
+<section class=" h-screen overflow-y-hidden text-sm">
 
     <section class="bg-blue-300 pb-4">
         <div class="h-12 flex justify-between align-middle items-center mb-2 px-2 bg-blue-600 text-white">
@@ -193,8 +193,8 @@ $sid=$_SESSION['id'];
                                 </div>
 
                                 <div class="flex flex-col mt-2">
-                                <input type="text" class="form-control mb-2 p-3 bg-blue-100 h-8 text-black" size="20" id="edetail"   name="edetail" required placeholder="Enter Detail/Source" title="Please Enter Source"  aria-label="..." autofocus>
-                                <input type="text" class="form-control mb-2 p-3 bg-blue-100 h-8 text-black" size="20" id="eamount" name="eamount" required placeholder="Enter Amount" aria-label="..." title="Please enter Amount"  onkeypress="return isNumberKey(event)"  >
+                                <input type="text" class="form-control mb-2 p-3 bg-blue-100 h-8 text-black  border-2 border-solid border-blue-300 rounded-md outline-none" size="20" id="edetail"   name="edetail" required placeholder="Enter Detail/Source" title="Please Enter Source"  aria-label="..." autofocus>
+                                <input type="text" class="form-control mb-2 p-3 bg-blue-100 h-8 text-black border-2 border-solid border-blue-300 rounded-md outline-none" size="20" id="eamount" name="eamount" required placeholder="Enter Amount" aria-label="..." title="Please enter Amount"  onkeypress="return isNumberKey(event)"  >
                                 </div>
                         </div>
 
@@ -282,7 +282,7 @@ $sid=$_SESSION['id'];
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0l-5.571 3-5.571-3" />
                 </svg>
             </div>
-            <div class="flex">Analytics</div>            
+            <div class="flex"><a href="analytics.php">Analytics</a></div>                      
         </div>
     </div>
 
