@@ -108,7 +108,7 @@ $sid=$_SESSION['id'];
             $dendn = date('d M Y', $dendn);
         ?>
 
-        <div class="flex flex-col text-sm p-2 bg-blue-100 min-h-screen mt-28">
+        <div class="flex flex-col text-sm p-1 bg-blue-100 min-h-screen mt-28">
             <section>
                 <h4 class="mb-2">
                     Expense Report from <?php echo $dstartn; ?> - <?php echo $dendn; ?>
@@ -118,7 +118,7 @@ $sid=$_SESSION['id'];
             <div class="flex justify-between items-center">
                 <div class="flex flex-col justify-center items-center w-full h-12 bg-blue-200" >Date</div>
                 <div class="flex flex-col justify-center items-center w-full h-12 bg-blue-300">Expense</div>      
-                <div class="flex flex-col justify-center items-center w-full h-12 bg-blue-400">amount</div>
+                <div class="flex flex-col justify-center items-center w-full h-12 bg-blue-200">amount</div>
             </div>
             <?php 
 
@@ -131,7 +131,7 @@ $sid=$_SESSION['id'];
                 {
                 $exdate = strtotime($row["date"]);
                 $exdate = date('d M Y', $exdate);
-                    echo "<div class='flex justify-between items-center w-full'> <div class='flex flex-col justify-center items-center w-full bg-blue-400 h-14 border-b-2 border-solid border-b-white'> " . $exdate. "</div> <div class='flex justify-center flex-col items-center w-full bg-blue-200 h-14 border-b-2 border-solid border-b-white'> " . $row["pname"]. " </div> <div class='flex flex-col justify-center align-middle items-center bg-blue-300 w-full h-14 border-b-2 border-solid border-b-white'> Kshs ". $row["pprice"]. "</div> </div>";
+                    echo "<div class='flex justify-between items-center w-full'> <div class='flex flex-col justify-center items-center w-full bg-blue-300 h-14 border-b-2 border-solid border-b-white'> " . $exdate. "</div> <div class='flex justify-center flex-col items-center w-full bg-blue-200 h-14 border-b-2 border-solid border-b-white'> " . $row["pname"]. " </div> <div class='flex flex-col justify-center align-middle items-center bg-blue-300 w-full h-14 border-b-2 border-solid border-b-white'> Kshs ". $row["pprice"]. "</div> </div>";
                 }
             } else {
                     echo "<div class='flex justify-center items-center '> <div> </div> <div class='alert alert-danger' role='alert'> No Expense in given Dates </div><div> </div></div>";
