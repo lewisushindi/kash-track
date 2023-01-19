@@ -108,7 +108,7 @@ $sid=$_SESSION['id'];
             $dendn = date('d M Y', $dendn);
         ?>
 
-        <div class="flex flex-col p-1 bg-blue-100 min-h-screen mt-28">
+        <div class="flex flex-col p-1 bg-blue-100 min-h-screen mt-28 pb-12">
             <section>
                 <h4 class="mb-2">
                     Expense Report from <?php echo $dstartn; ?> - <?php echo $dendn; ?>

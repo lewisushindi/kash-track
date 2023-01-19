@@ -204,7 +204,7 @@ $sid=$_SESSION['id'];
                                 <label><input type="radio" name="enttype"   value="2" aria-label="...">Income</label>
                             </span>
                             <span class="input-group-btn mt-2 flex justify-center items-center align-middle">
-                                <button type="button" onClick="window.location.reload()" class="btn bg-blue-600 w-24 h-8" ><p class="text-white">Save</p>  <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span></button>
+                                <button type="submit" onClick="window.location.reload()" class="btn bg-blue-600 w-24 h-8" ><p class="text-white">Save</p>  <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span></button>
                             </span>
                         </div>  
                     </div>
